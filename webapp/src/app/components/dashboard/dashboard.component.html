@@ -1,2 +1,35 @@
-<h2 class="page.header">Dashboard</h2>
-<p>Welcome to Dashboard of MEAN Stack!</p>
+<h3 class="page-header">Your suggestion: </h3>
+<form (submit)="onSuggestionSubmit()">
+  <div class="form-group">
+    <label>Title</label>
+    <input type="text" class="form-control" [(ngModel)]="title" name="title">
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+    <input type="text" multiple class="form-control" [(ngModel)]="description" name="description">
+  </div>
+  <input type="submit" class="btn btn-primary" value="SUBMIT">
+</form>
+
+<div >
+    <!-- <h2 class="page.header">&nbsp;&nbsp;{{user.name}}</h2> -->
+    <br><br>
+    <table class="table table.striped" width='100%'>
+        <thead class="thead-inverse">
+        <tr>
+                <td><b>#</b></td>
+                <td><b>TITLE</b></td>
+                <td><b>DESCRIPTION</b></td>
+                <td><b>STATUS</b></td>
+        </tr>
+    </thead>
+    <tbody *ngIf="suggestionList" >
+            <tr *ngFor='let suggestion of suggestionList; index as i;'>
+                    <th scope="row">{{i + 1}}</th>
+                    <td>{{suggestion.title}}</td>
+                    <td>{{suggestion.description}}</td>
+                    <td>{{suggestion.status}}</td>
+                  </tr>
+    </tbody>
+    </table>
+  </div>

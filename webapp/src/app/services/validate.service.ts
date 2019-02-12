@@ -17,4 +17,12 @@ export class ValidateService {
     const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
     return re.test(email);
   }
+
+  validateSuggestion(suggestion){
+    if (suggestion.title == undefined || suggestion.description == undefined) {
+      return false;
+    } else{
+      return true;
+    }
+  }
 }

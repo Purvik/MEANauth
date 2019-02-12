@@ -8,6 +8,7 @@ const config = require('./config/database');
 
 //Routes
 const routeUsers = require('./routes/users.route');
+const routeSuggestion = require('./routes/suggestion.route');
 
 
 //mongodb connection
@@ -42,6 +43,7 @@ require('./config/passport')(passport);
 
 //route redirection
 app.use('/users', routeUsers);
+app.use('/suggestion', routeSuggestion);
 
 app.get('/', (req,res) => {
     res.send("Home Page");

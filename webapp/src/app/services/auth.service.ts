@@ -37,6 +37,26 @@ export class AuthService {
     .map(res => res.json());
   }
 
+  addSuggestion(suggestion){
+    let headers = new Headers();
+    this.loadToken();
+    headers.append('Authorization', 'Bearer ' + this.authToken);
+    headers.append('content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/suggestion/add',suggestion, {headers: headers})
+    .map(res => res.json());
+  }
+
+  getSuggestionList(){
+    let headers = new Headers();
+    this.loadToken();
+    headers.append('Authorization', 'Bearer ' + this.authToken);
+    headers.append('content-Type', 'application/json');
+    return this.http.get('http://localhost:3000/suggestion/getAll', {headers: headers})
+    .map(res => res.json());
+  }
+
+
+
   storeUserData(token, user){
     localStorage.setItem('id_token', token) ;
     localStorage.setItem('user', JSON.stringify(user));
